@@ -1,4 +1,4 @@
-In this tutorial we are going talk a good way about request validation, and error response and Services using Laravel.
+In this tutorial we are going talk a good way about request validation.
 
 This tutorial is based in the tutorial "crud-api-by-laravel" which has a basic CRUD API Structure https://github.com/uilhamello/crud-api-by-laravel
 

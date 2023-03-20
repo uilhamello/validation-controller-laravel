@@ -6,6 +6,7 @@ use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\ProductStoreRequest;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ProductController extends Controller
 {
@@ -27,6 +28,7 @@ class ProductController extends Controller
      */
     public function store(ProductStoreRequest $request)
     {
+        
         return Product::create($request->post());
     }
 
@@ -50,7 +52,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        return $product->update($request->all());
+        
+        try{
+            return $product->update($request->all());
+        } catch(ModelNotFoundException $ex) {
+            return response()->json([500, 'Product Id not found']);
+        }
     }
 
     /**

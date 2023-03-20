@@ -77,9 +77,9 @@ In ProductController let's change Request type-hints on store method parameter f
     }
 ```
 
-So if you try to request product@store with a data request that doesn't match the validations rules you gonna be automaticly redirect. Other hand it is going to work as usual.
+So if you try to request product@store with a data request that doesn't match the validations rules you will receive a json error or with you request the API from Postman/Thunder and no inform on Headers that is a Acept=application/Json you will be redirect to Home Page. Other hand it is going to work as usual.
 
-As we are building on API project we do not need a redirect, so let's change the action to just show a json validate error message.
+In the case of redirect to Home Page, as we are building on API project it is not a correct comportament, so let's force to response with a Json even it as not the parameter Acept=application/Json declared on Headers.
 
 On ProductStoreRequest include to use befor FormRequest, like this:
 

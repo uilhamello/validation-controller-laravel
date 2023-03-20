@@ -35,11 +35,10 @@ class ProductStoreRequest extends FormRequest
         return [
             'name.required' => ' The name is required',
             'quantity.required' => 'The quantity is required',
-            'quantity.integer' => 'The quantity needs to be a integer value'
         ];
     }
 
-    protected function failedValidation(Validator $validator) {
-        throw new HttpResponseException(response()->json($validator->errors(), 422));
-    }
+    // protected function failedValidation(Validator $validator) {
+    //     throw new HttpResponseException(response()->json($validator->errors(), 422));
+    // }
 }
